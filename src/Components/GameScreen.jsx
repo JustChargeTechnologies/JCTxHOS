@@ -7,9 +7,6 @@ import bg from "../assets/bg.png";
 import vector from "../assets/Vector.png";
 import vector2 from "../assets/star1.png";
 import vector3 from "../assets/star2.png";
-
-
-
 import count from "../assets/ep_timer.png";
 
 const isTouchDevice = () => {
@@ -44,10 +41,9 @@ const FallingWord = ({ word, index, totalWords, onDrop, screenWidth }) => {
             ref={drag}
             style={{
                 touchAction: "none", // Prevents scrolling while dragging on touch devices
-                transform: `translate(-50%, -50%)`, // Center the element at its position
             }}
             className={`
-                px-8 py-4
+                px-4 py-2
                 bg-gray-700/90 
                 text-white 
                 ${getFontSize()}
@@ -219,14 +215,14 @@ const FallingWordsGame = ({ question, onAnswer, timeLimit }) => {
 
                         {/* Right Box - Words Container */}
                         <div className="w-full lg:w-1/2 bg-black/80 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 relative border border-[#818080] min-h-[250px] sm:min-h-[300px] lg:min-h-[500px] overflow-hidden">
-                            <div className="mt-1 flex justify-end items-center space-x-2 mb-12">
+                            <div className="mt-1 flex justify-end items-center space-x-2 mb-4">
                                 <img src={count} alt="countdown" className="h-4 sm:h-5 md:h-6" />
                                 <p className="text-base sm:text-lg md:text-xl font-bold text-white">{timeLeft}s</p>
                             </div>
 
                             {/* Words container with explicit height */}
-                            <div className="relative h-[80%] w-full text-lg sm:text-xl md:text-3xl lg:text-4xl font-judson p-12 text-center align-center justify-center">
-                                <div className="flex flex-wrap gap-2">
+                            <div className="relative h-[80%] w-full text-lg sm:text-xl md:text-3xl lg:text-4xl font-judson">
+                                <div className="flex flex-wrap gap-2 justify-center">
                                     {question.options.map((word, index) => (
                                         <FallingWord
                                             key={index}
