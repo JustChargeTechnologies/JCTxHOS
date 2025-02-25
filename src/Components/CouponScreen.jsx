@@ -67,7 +67,7 @@ const CouponScreen = ({ couponPercentage, onContinue }) => {
                             </motion.div>
 
                             {/* Coupon Code & Name in One Line */}
-                            <div className='text-black text-xl'
+                            <div className='flex justify-center items-center text-black text-xl -mt-2'
 
                             >Coupon Code :
                                 <span className="text-lg font-bold text-red-600 tracking-wide">{name}</span>
