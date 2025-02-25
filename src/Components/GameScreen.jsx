@@ -222,7 +222,7 @@ const FallingWordsGame = ({ question, onAnswer, timeLimit }) => {
 
                             {/* Words container with explicit height */}
                             <div className="relative h-[80%] w-full text-lg sm:text-xl md:text-3xl lg:text-4xl font-judson">
-                                <div className="flex flex-wrap gap-2 justify-center">
+                                <div className="flex flex-wrap gap-2 justify-center mt-20">
                                     {question.options.map((word, index) => (
                                         <FallingWord
                                             key={index}
