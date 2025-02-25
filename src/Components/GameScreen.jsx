@@ -7,6 +7,9 @@ import bg from "../assets/bg.png";
 import vector from "../assets/Vector.png";
 import vector2 from "../assets/star1.png";
 import vector3 from "../assets/star2.png";
+
+
+
 import count from "../assets/ep_timer.png";
 
 const isTouchDevice = () => {
