@@ -28,14 +28,6 @@ const FallingWord = ({ word, index, totalWords, onDrop, screenWidth }) => {
         }),
     }));
 
-    // Adjusted font size based on device size and word length
-    const getFontSize = () => {
-        const lengthAdjustment = word.length > 8 ? " text-xs" : word.length > 5 ? " text-sm" : "";
-        if (screenWidth < 375) return `text-lg${lengthAdjustment}`;
-        if (screenWidth < 768) return `text-xl${lengthAdjustment}`;
-        return `text-2xl${lengthAdjustment}`;
-    };
-
     return (
         <motion.div
             ref={drag}
@@ -46,7 +38,7 @@ const FallingWord = ({ word, index, totalWords, onDrop, screenWidth }) => {
                 px-4 py-2
                 bg-gray-700/90 
                 text-white 
-                ${getFontSize()}
+                text-lg sm:text-xl md:text-2xl
                 rounded-full 
                 cursor-move 
                 shadow-lg 
@@ -58,6 +50,12 @@ const FallingWord = ({ word, index, totalWords, onDrop, screenWidth }) => {
                 touch-none
                 select-none
                 ${isDragging ? "opacity-50 scale-105" : "opacity-100"}
+                w-24 sm:w-32 md:w-40 // Fixed width for all words
+                h-10 sm:h-12 md:h-14 // Fixed height for all words
+                flex items-center justify-center // Center text
+                whitespace-nowrap // Prevent text from wrapping
+                overflow-hidden // Hide overflow
+                text-ellipsis // Add ellipsis for long words
             `}
         >
             {word}
@@ -222,7 +220,7 @@ const FallingWordsGame = ({ question, onAnswer, timeLimit }) => {
 
                             {/* Words container with explicit height */}
                             <div className="relative h-[80%] w-full text-lg sm:text-xl md:text-3xl lg:text-4xl font-judson">
-                                <div className="flex flex-wrap gap-2 justify-center mt-20">
+                                <div className="mt-20 flex flex-wrap gap-2 justify-center">
                                     {question.options.map((word, index) => (
                                         <FallingWord
                                             key={index}
