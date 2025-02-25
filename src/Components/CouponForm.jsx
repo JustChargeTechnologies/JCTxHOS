@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import bg from '../assets/bg.png';
 
+
+
 const MysticalForm = ({ onSubmit }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
